@@ -1,4 +1,5 @@
 libs
+dist
 node_modules
 .ide
 .vscode

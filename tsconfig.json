@@ -3,13 +3,13 @@
     "target": "es5",
     "module": "commonjs",
     "outDir": "./dist/",
-    "rootDir": "./scr/",
+    "rootDir": "./src/",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "scr"
+    "src"
   ]
 }
