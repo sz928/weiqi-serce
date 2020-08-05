@@ -1,0 +1,11 @@
+syntax = "proto3";
+package Protocol;
+
+// 注册UCC BIN的IP与PORT
+message PU2SRegistUccBinReq {
+string UccBinIP = 1;
+int32 UccBinPort = 2;
+int32 GameServerState = 3;
+int32 ModeId = 4;
+int32 Version = 5;
+}

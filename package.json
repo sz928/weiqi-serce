@@ -1,0 +1,16 @@
+{
+  "name": "weiqi-serve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pb-build":"cd script && bash pb-build.sh"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/websocket": "^1.0.1",
+    "protobufjs": "^6.10.1"
+  }
+}
