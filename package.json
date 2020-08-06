@@ -5,13 +5,17 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pb-build":"cd script && bash pb-build.sh",
-    "build":"tsc --build tsconfig.json"
+    "pb-build": "cd script && bash pb-build.sh",
+    "build": "tsc --build tsconfig.json",
+    "dev": "ts-node ./src/app.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/websocket": "^1.0.1",
     "protobufjs": "^6.10.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.7"
   }
 }
