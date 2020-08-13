@@ -50,6 +50,7 @@ export class Socket {
         let cmd = MsgId[name];
         let msg = JSON.stringify(data);
         target.send(cmd + '+' + msg);
+        console.log('发送 cmd：' + cmd + ',data:' + msg);
     }
 
     private allSendMsg(roomid: number, name: MsgId, data: any): void {
@@ -75,7 +76,8 @@ export class Socket {
 
     private roomSys(roomid: number): void {
         let obj = this.rooms.get(roomid);
-        let nowColor = (typeof (this.roomStatus.get(roomid)) == undefined);
+        let nowColor = this.roomStatus.get(roomid);
+        if (nowColor == undefined) nowColor = true;
         let roomSyncBack: roomSync = {
             playerCount: obj ? obj.length : 0,
             nowColreBlack: nowColor
