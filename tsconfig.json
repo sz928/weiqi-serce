@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
-    "outDir": "./dist/",
+    "module": "System",
+    "outFile": "./dist/app.js",
     "rootDir": "./src/",
     "strict": true,
     "moduleResolution": "node",
