@@ -2,7 +2,7 @@ syntax = "proto3";
 package Protocol;
 
 // 注册UCC BIN的IP与PORT
-message PU2SRegistUccBinReq {
+message Login {
 string UccBinIP = 1;
 int32 UccBinPort = 2;
 int32 GameServerState = 3;
