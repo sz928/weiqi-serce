@@ -89,7 +89,7 @@ export class Socket {
 
 
     onLogin(data: loginReq, client: WebSocket): void {
-        this.roomid = data.roomid;
+        Socket.roomid = data.roomid;
         let { joinSuc, obj } = this.setClient(data.roomid, client);
 
         let arr = this.allPieceArr.get(data.roomid);
