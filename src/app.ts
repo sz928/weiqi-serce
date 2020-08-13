@@ -14,6 +14,8 @@ class Main {
         this.webSocketServer.on('connection', function connection(client: WebSocket) {
             client.on("message", self.message.bind(self, client));
         });
+        console.log('执行中...');
+        
     }
 
     private message(client: WebSocket, _data: WebSocket.Data): void {
