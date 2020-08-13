@@ -8,7 +8,9 @@ export class Socket {
     /**所有的棋盘 */
     private allPieceArr: Map<number, piece[]>
     /**当前房间 棋子颜色 */
-    private roomStatus: Map<number, boolean>
+    private roomStatus: Map<number, boolean>;
+
+    static roomid: number = 0;
 
     constructor() {
         this.rooms = new Map();
@@ -50,7 +52,7 @@ export class Socket {
         let cmd = MsgId[name];
         let msg = JSON.stringify(data);
         target.send(cmd + '+' + msg);
-        console.log('发送 cmd：' + cmd + ',data:' + msg);
+        console.log(Socket.roomid + ',发送 cmd：' + cmd + ',data:' + msg);
     }
 
     private allSendMsg(roomid: number, name: MsgId, data: any): void {
@@ -87,6 +89,7 @@ export class Socket {
 
 
     onLogin(data: loginReq, client: WebSocket): void {
+        this.roomid = data.roomid;
         let { joinSuc, obj } = this.setClient(data.roomid, client);
 
         let arr = this.allPieceArr.get(data.roomid);

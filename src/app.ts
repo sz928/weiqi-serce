@@ -15,7 +15,6 @@ class Main {
             client.on("message", self.message.bind(self, client));
         });
         console.log('执行中...');
-        
     }
 
     private message(client: WebSocket, _data: WebSocket.Data): void {
@@ -38,10 +37,8 @@ class Main {
         let index = _data.indexOf('+');
         let cmd = _data.substr(0, index);
         let data = _data.substr(index + 1);
-        console.log('收到 cmd：' + cmd + ',data:' + data);
+        console.log(Socket.roomid + ',收到 cmd：' + cmd + ',data:' + data);
         return { cmd: cmd, data: JSON.parse(data) }
     }
-
-
 }
 new Main();
