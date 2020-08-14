@@ -50,9 +50,10 @@ export class Socket {
 
     private sendMsg(target: WebSocket, name: MsgId, data: any) {
         let cmd = MsgId[name];
-        let msg = JSON.stringify(data);
-        target.send(cmd + '+' + msg);
-        console.log(Socket.roomid + ',发送 cmd：' + cmd + ',data:' + msg);
+        // let msg = JSON.stringify(data);
+        let sendData = { cmd: cmd, data: data };
+        target.send(JSON.stringify(sendData));
+        console.info(Socket.roomid + ',发送数据：' + sendData);
     }
 
     private allSendMsg(roomid: number, name: MsgId, data: any): void {

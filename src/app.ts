@@ -34,11 +34,13 @@ class Main {
     }
 
     private initData(_data: string): { cmd: string, data: object } {
-        let index = _data.indexOf('+');
-        let cmd = _data.substr(0, index);
-        let data = _data.substr(index + 1);
-        console.log(Socket.roomid + ',收到 cmd：' + cmd + ',data:' + data);
-        return { cmd: cmd, data: JSON.parse(data) }
+        let msg = JSON.parse(_data);
+        let { cmd, data } = msg;
+        // let index = _data.indexOf('+');
+        // let cmd = _data.substr(0, index);
+        // let data = _data.substr(index + 1);
+        console.info(Socket.roomid + ',收到数据：' + msg);
+        return { cmd: cmd, data: data };
     }
 }
 new Main();
