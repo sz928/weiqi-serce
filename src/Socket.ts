@@ -139,9 +139,14 @@ export class Socket {
         this.allSendMsg(roomid, MsgId.resultPush, back);
     }
     onNewGameRes(data: newGameReq, client: WebSocket): void {
-        this.rooms.delete(data.roomid);
-        this.roomStatus.delete(data.roomid);
-        this.allPieceArr.delete(data.roomid);
+        // this.rooms.delete(data.roomid);
+        this.roomStatus.set(data.roomid, true);
+        this.allPieceArr.get(data.roomid)?.splice(0);
+        this.roomSys(data.roomid);
+        let back: newGameReq = {
+            roomid: data.roomid
+        }
+        this.sendMsg(client, MsgId.newGameReq, back);
     }
 
 }
