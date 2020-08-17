@@ -10,7 +10,7 @@ export class Socket {
     /**当前房间 棋子颜色 */
     private roomStatus: Map<number, boolean>;
 
-    private timeoutArr: NodeJS.Timeout;
+    // private timeoutArr: NodeJS.Timeout;
 
     static roomid: number = 0;
 
