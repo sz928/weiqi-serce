@@ -1,5 +1,5 @@
 import WebSocket, { Server } from "ws";
-import { MsgId, loginReq, newGameReq, roomSync, playChessReq, playChessRes, resultPush } from "./data";
+import { MsgId, loginReq, newGameReq, roomSync, playChessReq, playChessRes, resultPush, heartbeat } from "./data";
 import { Socket } from "./Socket";
 
 class Main {
@@ -29,6 +29,9 @@ class Main {
                 break;
             case MsgId[MsgId.newGameReq]:
                 Socket.instance.onNewGameRes(data as newGameReq, client);
+                break;
+            case MsgId[MsgId.heartbeat]:
+                Socket.instance.onHeartbeat(data as heartbeat, client);
                 break;
         }
     }

@@ -1,6 +1,6 @@
 //心跳
-interface heartbeat {
-    name: string
+export interface heartbeat {
+    roomid: number
 }
 
 /**登录请求 */

@@ -1,5 +1,5 @@
 import WebSocket from "ws";
-import { loginReq, roomSync, playChessReq, playChessRes, resultPush, newGameReq, loginRes, piece, MsgId } from "./data";
+import { loginReq, roomSync, playChessReq, playChessRes, resultPush, newGameReq, loginRes, piece, MsgId, heartbeat } from "./data";
 import { Utils } from "./Utils";
 
 export class Socket {
@@ -9,6 +9,8 @@ export class Socket {
     private allPieceArr: Map<number, piece[]>
     /**当前房间 棋子颜色 */
     private roomStatus: Map<number, boolean>;
+
+    private timeoutArr: NodeJS.Timeout;
 
     static roomid: number = 0;
 
@@ -148,6 +150,14 @@ export class Socket {
             roomid: data.roomid
         }
         this.sendMsg(client, MsgId.newGameReq, back);
+    }
+
+    // 心跳
+    onHeartbeat(data: heartbeat, client: WebSocket): void {
+        // TODO 心跳计时器
+        // this.timeoutArr = setInterval(() => {
+
+        // }, 6000)
     }
 
 }
