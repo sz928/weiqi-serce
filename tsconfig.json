@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "CommonJS",
     "outDir": "./dist/",
     "rootDir": "./src/",
@@ -12,8 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": ["node_modules/@types"],
     "lib": [
-      "ES6",
-      "DOM"
+      "ES6"
     ]
   },
   "include": [
